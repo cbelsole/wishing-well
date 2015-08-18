@@ -3,7 +3,7 @@
 ```json
 {
   "amount": 0,
-  "charityId": "some charity ID,
+  "charityId": "some charity ID",
   "status": ["active", "rejected", "pending"],
   "userId": "some user ID",
   "wish": "Some wish"
