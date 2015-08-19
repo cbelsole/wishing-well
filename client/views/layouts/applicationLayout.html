@@ -1,0 +1,14 @@
+<template name="ApplicationLayout">
+  <head>
+    <title>adultmakeawish</title>
+  </head>
+  <body>
+    {{> Header}}
+  </body>
+  {{> Template.dynamic template=top}}
+  {{> Template.dynamic template=main}}
+</template>
+
+<template name="Header">
+  <h1>This is the header</h1>
+</template>
