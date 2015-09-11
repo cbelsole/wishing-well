@@ -1,16 +1,15 @@
 <template name="ApplicationLayout">
   <head>
-    <title>adultmakeawish</title>
+    <title>Wishing Well</title>
   </head>
   <body>
-    {{> Header}}
+    {{> Template.dynamic template=header}}
+    {{> Template.dynamic template=main}}
   </body>
-  {{> Template.dynamic template=top}}
-  {{> Template.dynamic template=main}}
 </template>
 
-<template name="Header">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        {{> loginButtons}}
-    </nav>
+<template name="header">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    {{> loginButtons}}
+  </nav>
 </template>
