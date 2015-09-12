@@ -1,3 +1,31 @@
 <template name="Home">
-  <h1>This is the home page</h1>
+  <h1 class="text-center">Wishing Well</h1>
+
+  {{#if inputWish}}
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline text-center">
+          <div class="form-group">
+            <label for="wishText">Wish</label>
+            <input type="text" class="form-control" id="wishText" placeholder="What is your wish?">
+          </div>
+          <div class="form-group">
+            <label for="wishAmmount">Amount</label>
+            <input type="number" class="form-control" id="wishAmmount" placeholder="Amount">
+          </div>
+          <button type="submit" class="btn btn-default">Make a wish</button>
+        </form>
+      </div>
+    </div>
+  {{else}}
+    <div class="row">
+      <div class="col-md-2 col-md-offset-4">
+        <button type="button" class="btn btn-default btn-lg wish__individual">I am an individual</button>
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-default btn-lg wish__group">I am a group</button>
+      </div>
+    </div>
+  {{/if}}
+
 </template>
