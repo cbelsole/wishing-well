@@ -4,16 +4,32 @@
   {{#if inputWish}}
     <div class="row">
       <div class="col-md-12">
-        <form class="form-inline text-center">
+        <form class="form-horizontal">
           <div class="form-group">
-            <label for="wishText">Wish</label>
-            <input type="text" class="form-control" id="wishText" placeholder="What is your wish?">
+            <label class="col-sm-2 control-label" for="wishText">Wish</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="wishText" placeholder="What is your wish?">
+            </div>
           </div>
           <div class="form-group">
-            <label for="wishAmmount">Amount</label>
-            <input type="number" class="form-control" id="wishAmmount" placeholder="Amount">
+            <label class="col-sm-2 control-label" for="wishAmount">Amount</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="wishAmount" placeholder="Amount">
+            </div>
           </div>
-          <button type="submit" class="btn btn-default">Make a wish</button>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Chrity</label>
+            <div class="col-sm-10">
+              <select class="form-control" id="wishCharity">
+                {{#each charities}}
+                  <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default wish-form__submit">Make a wish</button>
+          </div>
         </form>
       </div>
     </div>
@@ -27,5 +43,5 @@
       </div>
     </div>
   {{/if}}
-
+  {{> LoginSignupModal }}
 </template>
