@@ -1,12 +1,12 @@
 #Collections:
-##Bid:
+##Wishes:
 ```json
 {
   "amount": 0,
   "charityId": "some charity ID",
   "status": ["active", "rejected", "pending"],
   "userId": "some user ID",
-  "wish": "Some wish"
+  "text": "Some wish"
 }
 ```
 ##Charities
@@ -16,18 +16,10 @@
 }
 ```
 
-#Routes
-```
-/
-/users/:id
-/bids
-/charities
-```
-
 #Pages
 ```
-/ - home page
-/users/:id - User page with list of user's bids
-/bids - list of all bids
+/          - home page
 /charities - list of available charities
+/users/:id - User page with list of user's Wishes
+/wishes    - list of all wishes
 ```
