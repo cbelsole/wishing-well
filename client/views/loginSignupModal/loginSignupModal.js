@@ -2,11 +2,19 @@ Template.LoginSignupModal.created = function () {
   this.data.loginSignupModalMode = new ReactiveVar('login');
 };
 
+Template.LoginSignupModal.rendered = function () {
+  $('#LoginSignupModal').on('hide.bs.modal', function (e) {
+    $('#username').val('');
+    $('#password').val('');
+    $('#confirmPassword').val('');
+  })
+};
+
 Template.LoginSignupModal.events({
   'click .login-form__sign-up': function (event, instance) {
     instance.data.loginSignupModalMode.set('signup');
   },
-  'click .login-form__login': function (event, instance) {
+  'click .login-signup-form__login': function (event, instance) {
     instance.data.loginSignupModalMode.set('login');
   },
   'click .login-signup-form__submit': function (event, instance) {
@@ -23,18 +31,7 @@ Template.LoginSignupModal.events({
         if (error) {
           console.log(error);
         } else {
-          var wishText   = $('#wishText').val(),
-              wishAmount = parseInt($('#wishAmount').val(), 10),
-              charityId  = $('#wishCharity').val();
-
-          Meteor.call('makeAWish', wishText, wishAmount, charityId, function (error, result) {
-            if (error) {
-              console.log(error);
-            } else {
-              $('.modal-backdrop').remove();
-              FlowRouter.go('wishes');
-            }
-          });
+          $('#LoginSignupModal').modal('hide');
         }
       });
     } else {
@@ -45,18 +42,7 @@ Template.LoginSignupModal.events({
         if(error) {
           console.log(error);
         } else {
-          var wishText   = $('#wishText').val(),
-              wishAmount = parseInt($('#wishAmount').val(), 10),
-              charityId  = $('#wishCharity').val();
-
-          Meteor.call('makeAWish', wishText, wishAmount, charityId, function (error, result) {
-            if (error) {
-              console.log(error);
-            } else {
-              $('.modal-backdrop').remove();
-              FlowRouter.go('wishes');
-            }
-          });
+          $('#LoginSignupModal').modal('hide');
         }
       });
     }

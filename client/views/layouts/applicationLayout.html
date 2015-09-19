@@ -3,13 +3,13 @@
     <title>Wishing Well</title>
   </head>
   <body>
-    <div class="container">
+    <header>
       {{> Template.dynamic template=header}}
+    </header>
+    <div class="container">
       {{> Template.dynamic template=main}}
     </div>
+    {{> LoginSignupModal }}
   </body>
 </template>
 
-<template name="header">
-
-</template>
