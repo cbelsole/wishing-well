@@ -5,7 +5,7 @@ Meteor.methods({
     check(amount, Number);
 
     Wishes.insert({
-      amount: 0,
+      amount: amount,
       charityId: charityId,
       status: 'active',
       userId: this.userId,
