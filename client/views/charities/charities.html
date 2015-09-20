@@ -1,3 +1,21 @@
 <template name="Charities">
-  <h1>This is the charities page</h1>
+  <h1>Charities</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Pending Donations</th>
+        <th>Amount Donated</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each charities}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.pendingDonations}}</td>
+          <td>{{this.donations}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </template>

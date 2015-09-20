@@ -7,7 +7,7 @@ function requireLogin(context, redirect) {
 FlowRouter.route('/', {
   name: 'home',
   subscriptions: function(params, queryParams) {
-    this.register('allCharities', Meteor.subscribe('allCharities'));
+    this.register('charityDropdown', Meteor.subscribe('charityDropdown'));
   },
   action: function(params, queryParams) {
     BlazeLayout.render('ApplicationLayout', { header: "Header", main: "Home" });
@@ -31,6 +31,9 @@ FlowRouter.route('/wishes', {
 
 FlowRouter.route('/charities', {
   name: 'charities',
+  subscriptions: function(params, queryParams) {
+    this.register('allCharities', Meteor.subscribe('allCharities'));
+  },
   action: function(params, queryParams) {
     BlazeLayout.render('ApplicationLayout', { header: "Header", main: "Charities" });
   }

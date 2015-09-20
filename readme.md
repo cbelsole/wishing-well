@@ -12,7 +12,9 @@
 ##Charities
 ```json
 {
-  "name": "Charity name"
+  "name": "Charity name",
+  "pendingDonations": 0,
+  "donations": 0
 }
 ```
 
