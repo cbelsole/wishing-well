@@ -1,3 +1,25 @@
 <template name="Wishes">
-  <h1>This is the wishes page</h1>
+  <h1>Wishes</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Wish</th>
+        <th>Amount</th>
+        <th>Charity</th>
+        <th>User</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each wishes}}
+        <tr>
+          <td>{{this.text}}</td>
+          <td>{{this.amount}}</td>
+          <td>{{charityName this.charityId}}</td>
+          <td>{{userName this.userId}}</td>
+          <td>{{this.status}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </template>
