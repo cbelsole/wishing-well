@@ -18,7 +18,7 @@ Meteor.publish("usernamesWithWishes", function () {
   var userIds = _.chain(Wishes.find({}, { fields: { userId: 1 } }).fetch())
                  .pluck('userId')
                  .without(this.userId)
-                 .values();
+                 .value();
 
   return Wishes.find({ _id: { $in: userIds } });
 });
