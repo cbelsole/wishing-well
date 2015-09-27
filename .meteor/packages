@@ -4,7 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 kadira:flow-router
 kadira:blaze-layout
 accounts-ui
@@ -14,3 +13,17 @@ reywood:bootstrap3-sass
 reactive-var
 arillo:flow-router-helpers
 meteorhacks:aggregate
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
