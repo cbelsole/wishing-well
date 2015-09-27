@@ -14,10 +14,6 @@ Meteor.publish("allWishes", function () {
   return Wishes.find({});
 });
 
-Meteor.publish("allWishes", function () {
-  return Wishes.find({});
-});
-
 Meteor.publish("usernamesWithWishes", function () {
   var userIds = _.chain(Wishes.find({}, { fields: { userId: 1 } }).fetch())
                  .pluck('userId')
