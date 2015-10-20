@@ -22,3 +22,7 @@ Meteor.publish("usernamesWithWishes", function () {
 
   return Wishes.find({ _id: { $in: userIds } });
 });
+
+Meteor.publish('currentUserWishes', function () {
+  return Wishes.find({userId: this.userId});
+});

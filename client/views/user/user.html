@@ -1,3 +1,36 @@
 <template name="User">
-  <h1>This is the user page for {{currentUser.username}}</h1>
+  <h1>{{currentUser.username}}</h1>
+
+  <h2>Active Wishes:</h2>
+  {{#if wishes}}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Wish</th>
+          <th>Amount</th>
+          <th>Charity</th>
+          <th>User</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each wishes}}
+          <tr>
+            {{> userWish}}
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <p>No wishes yet</p>
+  {{/if}}
+</template>
+
+
+<template name="userWish">
+  <td>{{this.text}}</td>
+  <td>{{this.amount}}</td>
+  <td>{{charityName this.charityId}}</td>
+  <td>{{currentUser.username}}</td>
+  <td>{{this.status}}</td>
 </template>
