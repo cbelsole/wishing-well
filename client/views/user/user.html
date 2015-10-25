@@ -1,28 +1,32 @@
 <template name="User">
   <h1>{{currentUser.username}}</h1>
 
-  <h2>Active Wishes:</h2>
-  {{#if wishes}}
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Wish</th>
-          <th>Amount</th>
-          <th>Charity</th>
-          <th>User</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each wishes}}
+  {{#if Template.subscriptionsReady}}
+    <h2>Active Wishes:</h2>
+    {{#if wishes}}
+      <table class="table table-striped">
+        <thead>
           <tr>
-            {{> userWish}}
+            <th>Wish</th>
+            <th>Amount</th>
+            <th>Charity</th>
+            <th>User</th>
+            <th>Status</th>
           </tr>
-        {{/each}}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {{#each wishes}}
+            <tr>
+              {{> userWish}}
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <p>No wishes yet</p>
+    {{/if}}
   {{else}}
-    <p>No wishes yet</p>
+    Loading...
   {{/if}}
 </template>
 

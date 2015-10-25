@@ -1,5 +1,5 @@
 Template.LoginSignupModal.created = function () {
-  this.data.loginSignupModalMode = new ReactiveVar('login');
+  Session.set('loginSignupModalMode', 'login');
 };
 
 Template.LoginSignupModal.rendered = function () {
@@ -12,10 +12,10 @@ Template.LoginSignupModal.rendered = function () {
 
 Template.LoginSignupModal.events({
   'click .login-form__sign-up': function (event, instance) {
-    instance.data.loginSignupModalMode.set('signup');
+    Session.set('loginSignupModalMode', 'signup');
   },
   'click .login-signup-form__login': function (event, instance) {
-    instance.data.loginSignupModalMode.set('login');
+    Session.set('loginSignupModalMode', 'login');
   },
   'click .login-signup-form__submit': function (event, instance) {
     event.preventDefault();
@@ -26,7 +26,7 @@ Template.LoginSignupModal.events({
     check(username, Matchers.nonEmptyString);
     check(password, Matchers.nonEmptyString);
 
-    if (instance.data.loginSignupModalMode.get() === 'login') {
+    if (Session.get('loginSignupModalMode') === 'login') {
       Meteor.loginWithPassword(username, password, function (error) {
         if (error) {
           console.log(error);
@@ -51,9 +51,9 @@ Template.LoginSignupModal.events({
 
 Template.LoginSignupModal.helpers({
   loginMode: function () {
-    return this.loginSignupModalMode.get() === 'login';
+    return Session.get('loginSignupModalMode') === 'login';
   },
   signupMode: function () {
-    return this.loginSignupModalMode.get() === 'signup';
+    return Session.get('loginSignupModalMode') === 'signup';
   }
 });

@@ -1,9 +1,3 @@
-function requireLogin(context, redirect) {
-  if (!Meteor.userId()) {
-    redirect('/');
-  }
-}
-
 FlowRouter.route('/', {
   name: 'home',
   subscriptions: function(params, queryParams) {
@@ -12,18 +6,6 @@ FlowRouter.route('/', {
   action: function(params, queryParams) {
     BlazeLayout.render('ApplicationLayout', { header: "Header", main: "Home" });
   }
-});
-
-FlowRouter.route('/users/:_id', {
-  name: 'user',
-  subscriptions: function(params, queryParams) {
-    this.register('currentUserWishes', Meteor.subscribe('currentUserWishes'));
-    this.register('charityNames', Meteor.subscribe('charityNames'));
-  },
-  action: function(params, queryParams) {
-    BlazeLayout.render('ApplicationLayout', { header: "Header", main: "User" });
-  },
-  triggersEnter: [requireLogin]
 });
 
 FlowRouter.route('/wishes', {
